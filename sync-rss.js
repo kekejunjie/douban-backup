@@ -17,10 +17,10 @@ const RATING_TEXT = {
   力荐: 5,
 };
 const done = /^(看过|听过|读过|玩过)/;
-const doing = /^(在看|在听|在读|在玩)/;
+const doing = /^(在看|在听|在读|最近在玩)/;
 const wishlist = /^(想看|想听|想读|想玩)/;
 const allStatus =
-  /^(看过|听过|读过|玩过|在看|在听|在读|在玩|想看|想听|想读|想玩)/;
+  /^(看过|听过|读过|玩过|在看|在听|在读|最近在玩|想看|想听|想读|想玩)/;
 const CATEGORY = {
   movie: 'movie',
   music: 'music',
@@ -314,10 +314,10 @@ function extractItemInfo(title, link) {
     category = CATEGORY.music;
     id = link.match(/music\.douban\.com\/subject\/(\d+)\/?/)[1];
     status = m === '听过' ? STATUS.Complete : m === '在听' ? STATUS.Progress : STATUS.Wishlist;
-  } else if (m === '玩过' || m === '在玩' || m === '想玩') {
+  } else if (m === '玩过' || m === '最近在玩' || m === '想玩') {
     category = CATEGORY.game;
     id = link.match(/www\.douban\.com\/game\/(\d+)\/?/)[1];
-    status = m === '玩过' ? STATUS.Complete : m === '在玩' ? STATUS.Progress : STATUS.Wishlist;
+    status = m === '玩过' ? STATUS.Complete : m === '最近在玩' ? STATUS.Progress : STATUS.Wishlist;
   } else {
     return { category: undefined, id: undefined, status: undefined };
   }
