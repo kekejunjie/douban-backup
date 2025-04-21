@@ -303,7 +303,7 @@ function extractItemInfo(title, link) {
       id = link.match(/movie\.douban\.com\/subject\/(\d+)\/?/)[1];
     } else {
       category = CATEGORY.drama;
-      id = link.match(/www\.douban\.com\/location\/drama\/(\d+)\/?/)[1];
+      id = link.match(/www\.douban\.com\/location\/drama\/(\d+)\/?/)?.[1];
     }
     status = m === '看过' ? STATUS.Complete : m === '在看' ? STATUS.Progress : STATUS.Wishlist;
   } else if (m === '读过' || m === '在读' || m === '想读') {
