@@ -298,7 +298,7 @@ function extractItemInfo(title, link) {
   let category, id, status;
 
   if (m === '看过' || m === '在看' || m === '想看') {
-    if (link.startsWith('http://movie.douban.com/')) {
+    if (link.startsWith('https://movie.douban.com/')) {
       category = CATEGORY.movie;
       id = link.match(/movie\.douban\.com\/subject\/(\d+)\/?/)[1];
     } else {
